@@ -98,7 +98,7 @@ class BaseResource(object):
         :return:
         """
         r = self.response(*args, **kwargs)
-        if r.status_code == 200:
+        if r.status_code == 200 or  r.status_code == 206 :
             return r.json()
 
         raise(GuildWars2APIError(r.reason))
